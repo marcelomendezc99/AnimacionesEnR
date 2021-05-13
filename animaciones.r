@@ -1,5 +1,8 @@
+# borrar todas las variables existentes
 rm(list = ls())
+# cargar libreria para graficar
 library(ggplot2)
+# cargar libreria para tados de PIB y esperanza de vida
 library(gapminder)
 
 # asignar a la variable datos la tabla de gapminder

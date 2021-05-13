@@ -12,6 +12,21 @@ datos = gapminder
 grafico = ggplot(
             datos, 
             aes(x = gdpPercap, y = lifeExp, colour = continent)
-          ) + geom_point()
+          ) + geom_point(aes(size = pop), alpha = 0.8) +
+            theme_minimal() +
+            theme(legend.position = "bottom") + guides(size = "none") +
+            labs(x = "PIB per Cápita" , y = "Esperanza de Vida" , col = "")
+
 # mostrar gráfico
 grafico
+
+# cargar librerias para animar la gráfica
+library(gganimate)
+library(gifski)
+
+grafico = grafico +
+  transition_time(year) +
+  labs(title = "Año: {frame_time}")
+
+grafico
+
